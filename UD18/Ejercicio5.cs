@@ -11,7 +11,7 @@ namespace UD18
             db.Multifunction("CREATE TABLE Despachos(Numero int PRIMARY KEY,Capacidad int NOT NULL)");
             db.Multifunction("CREATE TABLE Directores(DNI varchar(8) PRIMARY KEY,NomApels nvarchar(255) NOT NULL," +
                 "Despacho int FOREIGN KEY REFERENCES Despachos(Numero) on update cascade," +
-                "DNIJefe varchar(8) FOREIGN KEY REFERENCES Directores(DNI) on update no action)");
+                "DNIJefe varchar(8) REFERENCES Directores(DNI) on update no action)");
         }
 
         public void InsertTableDespachos(Database db)
@@ -25,11 +25,11 @@ namespace UD18
 
         public void InsertTableDirectores(Database db)
         {
-            db.Multifunction("INSERT INTO Directores VALUES('94857301','Eric Pastor', 4,'')");
-            db.Multifunction("INSERT INTO Directores VALUES('74949482','Gerardo Aguilar', 5,'')");
-            db.Multifunction("INSERT INTO Directores VALUES('04948373','Sergio Clavero', 3,'')");
+            db.Multifunction("INSERT INTO Directores VALUES('94857301','Eric Pastor', 4,NULL)");
+            db.Multifunction("INSERT INTO Directores VALUES('74949482','Gerardo Aguilar', 5,NULL)");
+            db.Multifunction("INSERT INTO Directores VALUES('04948373','Sergio Clavero', 3,NULL)");
             db.Multifunction("INSERT INTO Directores VALUES('85757324','Mariano Avispado', 4,'94857301')");
-            db.Multifunction("INSERT INTO Directores VALUES('94857301','Pinado Antorcha', 5,'74949482')");
+            db.Multifunction("INSERT INTO Directores VALUES('33483921','Pinado Antorcha', 5,'74949482')");
         }
     }
 }
